@@ -1,0 +1,107 @@
+﻿@using OfficeManagerApp.Data.Models
+@using OfficeManagerApp.Shared.ModalDialog
+
+<div class="content-cards">
+
+    <p class="card-title @(IsVertical ? "card-title-vertical" : string.Empty)">@ConstEN.NearbyRooms</p>
+
+    <div class="cards @(IsVertical ? "cards-vertical" : string.Empty)">
+
+        @if (RoomsList == null || !RoomsList.Any())
+        {
+            <p class="text-info-center">@ConstEN.NoResults</p>
+        }
+        else
+        {
+            @foreach (var room in RoomsList)
+            {
+                <div class="card @(IsVertical ? "card-vertical" : string.Empty)">
+
+                    <img class="office-image @(IsVertical ? "office-image-vertical" : string.Empty)" src=@GetImage(room)>
+
+                    @if (IsVertical)
+                    {
+                        <div tabindex="0" @onmouseleave="() => OpenCloseDropdown(room.Id, true)">
+                            <img class="dots-absolute" src=@AssetsConst.IconsConst.Dots
+                                @onclick="() => OpenCloseDropdown(room.Id, false)">
+
+                            <div id=@room.Id.ToString() class="submenu-absolute disabled">
+
+                                <a href=@string.Format(AppConst.RoomUrlConst.RoomIdPageFormat, room.OfficeId, Office.Name, room.Id)>
+                                    <div class="icon-eye">
+                                        <img src=@AssetsConst.IconsConst.Pen>
+                                        <div class="icon-eye-text">
+                                            @ConstEN.Edit
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a @onclick="@(() => OpenDeleteDialog(room))">
+                                    <div class="icon-trash">
+                                        <img src=@AssetsConst.IconsConst.Trash>
+                                        <div class="icon-trash-text">
+                                            @ConstEN.Delete
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+                    }
+
+                    <a href=@string.Format(AppConst.RoomUrlConst.RoomDetailsPageFormat, room.Id)>
+                        <div class="office-info1 @(IsVertical ? "office-info1-vertical" : string.Empty)">
+
+                            <div class="office-name">
+                                @room.Name
+                            </div>
+
+                            @if (room.Status == Status.Available.ToString())
+                            {
+                                <div class="office-status" style="background-color: #34DDA5;"></div>
+                            }
+                            else if (room.Status == Status.Occupated.ToString())
+                            {
+                                <div class="office-status" style="background-color: #A61E24;"></div>
+                            }
+                            else
+                            {
+                                <div class="office-status" style="background-color: #FFBA22;"></div>
+                            }
+
+                        </div>
+
+                        <div class="office-info2 @(IsVertical ? "office-info2-vertical" : string.Empty)">
+
+                            @if (IsVertical)
+                            {
+                                <div class="office-location" style="display: flex;">
+
+                                    <img class="image-location-vertical" src=@AssetsConst.IconsConst.Location>
+
+                                    <p class="second-line-text">
+                                        @Office.Location.City
+                                    </p>
+
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="office-location">
+
+                                    <img src=@AssetsConst.IconsConst.Location> City
+
+                                </div>
+                            }
+
+                        </div>
+                    </a>
+
+                </div>
+            }
+        }
+
+    </div>
+
+</div>

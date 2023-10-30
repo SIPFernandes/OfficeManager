@@ -1,0 +1,189 @@
+﻿a {
+    text-decoration: none;
+}
+
+.content-cards {
+    padding: 24px 0 0 25px;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0 0 20px 0;
+}
+
+.card-title-vertical {
+    display: none;
+}
+
+.cards {
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.cards-vertical {
+    overflow-x: hidden;
+    padding: 0 25px 0 0;
+
+    /*Overlap*/
+    margin-top: 40px;
+}
+
+.card {
+    border-radius: 8px;
+    border: 1px #0B1F2F solid;
+    width: 200px;
+    width: calc(393px / 1.965);
+    height: 250px;
+    height: calc(851px / 3,404);
+    margin-right: 24px;
+    display: inline-block;
+}
+
+/*.card:nth-last-child(1) {
+    margin-bottom: 50px;
+}*/
+
+.card-vertical {
+    margin-right: 0;
+    margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+    height: 280px;
+}
+
+.card-vertical:nth-last-child(1) {
+    margin-bottom: 50px;
+}
+
+.office-image {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    height: 60%
+}
+
+.office-image-vertical {
+    height: 70%;
+}
+
+.office-info1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+}
+
+.office-info1-vertical {
+    padding: 20px 20px 0 20px;
+}
+
+.office-name {
+    color: #0B1F2F;
+    font-weight: 600;
+}
+
+.office-status {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+}
+
+.office-info2 {
+    padding: 10px 10px 0 10px;
+}
+
+.office-info2-vertical {
+    padding: 0 15px 0 15px;
+}
+
+.office-location {
+    color: #707070;
+    font-size: 14px;
+    font-family: 'Caecilia Com 55 Roman', sans-serif;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 1px 3px;
+}
+
+.image-location-vertical {
+    height: 30px;
+    width: 11px;
+}
+
+.second-line-text {
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+.text-info-center {
+    text-align: center;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.dots-absolute {
+    float: right;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    top: 5px;
+}
+
+.submenu-absolute {
+    background-color: #f7f3f2;
+    width: 90px;
+    margin-top: 25px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .submenu-absolute a {
+        padding: 5px 5px 5px 5px;
+        cursor: pointer;
+    }
+
+.icon-eye {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-trash {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.icon-eye-text {
+    color: black;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.icon-trash-text {
+    color: #F91D1D;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.disabled {
+    display: none;
+}

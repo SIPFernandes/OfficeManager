@@ -1,0 +1,124 @@
+﻿.filters {
+    padding: 24px 0 0 25px;
+    display: inline-flex;
+    width: 46%;
+}
+
+.filter {
+    border: 1px #BBBBBB solid;
+    border-radius: 6px;
+    padding: 8px 16px 8px 16px;
+    justify-content: space-between;
+    /*Overlap*/
+    position: absolute;
+    width: 40%;
+    background-color: white;
+    z-index: 1;
+    cursor: pointer;
+}
+
+    .filter:hover,
+    .filter:focus {
+        outline: none;
+    }
+
+.date {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+.custom-selector-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.icon-date {
+    width: 20px;
+}
+
+.filter-name {
+    color: #0B1F2F;
+    font-family: 'Caecilia Com 55 Roman', sans-serif;
+    font-size: 16px;
+    margin-bottom: 0;
+    justify-content: space-between;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.filter-opened {
+    background-color: white;
+}
+
+.filter-option {
+    color: black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.all {
+    text-align: center;
+    font-size: 12px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #BBBBBB;
+    margin-top: 5px;
+    color: #BBBBBB;
+}
+
+.filter-option-selected {
+    background-color: #EDF1F3;
+    border-radius: 8px;
+    padding: 0px 5px;
+}
+
+.filter-option:nth-child(2) {
+    margin-top: 10px;
+}
+
+.filter-option:focus,active {
+    background-color: red;
+}
+
+.filter-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width:500px) {
+
+    .filters {
+        width: 22%;
+    }
+
+    .filter {
+        width: 20%;
+    }
+}
+
+@media (max-width:300px) {
+
+    .filters {
+        width: 40%;
+    }
+}

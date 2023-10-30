@@ -1,0 +1,66 @@
+﻿@using OfficeManagerApp.Data.Models
+
+<div class="content-cards">
+
+    <div class="cards">
+
+        @if (DiscoverDataList == null || !DiscoverDataList.Any())
+        {
+            <p class="text-info-center">@ConstEN.NoResults</p>
+        }
+        else
+        {
+            @foreach (var data in DiscoverDataList)
+            {
+                <div class="card-data" @key=@data.GetHashCode()>
+
+                    <img class="data-image" src=@(string.IsNullOrEmpty(data.Image) ? AssetsConst.ImageConst.StylePageImageConst.DefaultImage : data.Image)>
+
+                    <a @onclick=@(() => GoTo(data.Id))>
+
+                        <div class="data-name">
+                            @data.Title
+                        </div>
+
+                        <div class="data-location">
+
+                            <img class="image-location-vertical" src=@AssetsConst.IconsConst.Location>
+
+                            <div class="second-line-text">
+                                @data.FirstInfo
+                            </div>
+
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(data.SecondInfo))
+                        {
+                            <div class="info-room">
+
+                                <div class="line">
+                                    <div>
+                                        <img class="image-location" src=@AssetsConst.IconsConst.Desk>
+                                    </div>
+                                    <div class="line-text">
+                                        @data.SecondInfo
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+
+                    </a>
+
+                    @if (!string.IsNullOrEmpty(data.SecondInfo))
+                    {
+                        <a href=@string.Format(AppConst.BookingUrlConst.BookingIdPageFormat, data.Id, 0) class="btn button-book">
+                            @ConstEN.BookRoom
+                        </a>
+                    }
+
+                </div>
+            }
+        }
+
+    </div>
+
+</div>

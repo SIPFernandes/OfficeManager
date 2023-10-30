@@ -1,0 +1,60 @@
+﻿a {
+	text-decoration: none;
+}
+
+.content-cards {
+	padding: 24px 0 50px 25px;
+	justify-content: space-between;
+}
+
+.card-title {
+	font-weight: 600;
+	font-size: 20px;
+	padding: 0 0 20px 0;
+}
+
+.cards {
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+.card {
+	border-radius: 8px;
+	width: 300px;
+	margin-right: 24px;
+	display: inline-block;
+	border: none;
+	height: 150px;
+	background-size: cover;
+}
+
+.text-info-center {
+	text-align: center;
+	padding: 10px;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: transparent;
+}
+
+.text-info-vertical {
+	display: flex;
+	justify-content: space-between;
+	padding: 110px 15px 0 15px;
+}
+
+.left-text-vertical {
+	color: white;
+	font-weight: 600;
+	font-size: 24px;
+}
+
+.right-text-vertical {
+	color: white;
+	font-size: 16px;
+	padding: 10px 0;
+}

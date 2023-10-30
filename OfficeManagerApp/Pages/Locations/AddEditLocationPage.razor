@@ -1,0 +1,80 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.LocationUrlConst.LocationIdPage)]
+@attribute [Authorize]
+
+@if (!IsModalDialog)
+{
+    <Header Title=@(LocationId == 0 ? ConstEN.AddLocation : ConstEN.EditLocation) />
+}
+
+@if (locationRequestModel != null)
+{
+    <EditForm Model="@locationRequestModel" OnValidSubmit="@(async () => await CreateOrEditLocation())">
+        <DataAnnotationsValidator />
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                </div>
+
+                <div class="col-md-4">
+                    @if (messages != null)
+                    {
+                        @foreach (var message in messages)
+                        {
+                            <div class="error-alert">
+                                @message
+                            </div>
+                            <br />
+                        }
+                    }
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.Country</label>
+                        <InputText id="country" class="form-control" @bind-Value="@locationRequestModel.Country" />
+                        <ValidationMessage For=@(() => locationRequestModel.Country) />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.City</label>
+                        <InputText id="city" class="form-control" @bind-Value="@locationRequestModel.City" />
+                        <ValidationMessage For=@(() => locationRequestModel.City) />
+
+                    </div>
+
+                    <br />
+
+                    @if (!IsModalDialog)
+                    {
+                        <div class="d-flex justify-content-between">
+                            <button class="button-cancel" @onclick="@(() => Cancel())">@ConstEN.Cancel</button>
+
+                            <button class="button-save" type="submit">@(LocationId == 0 ? ConstEN.Save : ConstEN.SaveChanges)</button>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="d-flex justify-content-center">
+                            <button class="button-save" type="submit">@(LocationId == 0 ? ConstEN.Save : ConstEN.SaveChanges)</button>
+                        </div>
+                    }
+
+
+                    @if (LocationId != 0)
+                    {
+                        <br />
+
+                        <div class="d-flex justify-content-between">
+                            <button class="button-delete" @onclick="@(async () => await DeleteLocation())">@ConstEN.Delete</button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </EditForm>
+}
+
+<Menu />

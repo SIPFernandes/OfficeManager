@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.OfficeUrlConst.OfficesPage)]
+@attribute [Authorize]
+
+<Header Title=@(company != null ? company.Name : ConstEN.Offices) UrlPage=@string.Format(AppConst.OfficeUrlConst.OfficeIdPageFormat, CompanyId, 0) />
+
+<Searchbar SearchbarChanged=@OnSearchbarChanged/>
+
+<CustomSelector CustomSelectorPlaceholder=@ConstEN.Country CustomSelectorOptionsList=allCountries CustomSelectorChanged=@OnFilterChanged/>
+
+<CustomSelector CustomSelectorPlaceholder=@ConstEN.SortBy CustomSelectorOptionsList=allSortBy CustomSelectorChanged=@OnSortChanged />
+
+<CardsVertical EntityDataList=entityCardModelList Entity=@ConstEN.OfficeLowerCase
+               UrlGet=@AppConst.OfficeUrlConst.OfficeIdPageFormat UrlGoTo=@AppConst.RoomUrlConst.RoomsPageFormat
+               OnDeleteEvent="(entity) => DeleteOffice(entity)" />
+
+<Menu />

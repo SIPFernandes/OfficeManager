@@ -1,0 +1,20 @@
+﻿@attribute [Route(AppConst.OtherPagesUrlConst.IndexPage)]
+@layout EmptyLayout
+
+<div class="background-index">
+    <img class="logo" src=@AssetsConst.IconsConst.Logo>
+</div>
+
+<div class="content-index">
+    <p>
+        @ConstEN.IndexTitle_1
+        <br />
+        @ConstEN.IndexTitle_2
+        <br />
+
+        <div class="login-button">
+            <button class="button-save" style="font-size: 20px;" @onclick=@(async () => await Login())>@ConstEN.Login</button>
+        </div>
+    </p>
+</div>
+

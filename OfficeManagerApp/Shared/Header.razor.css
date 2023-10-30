@@ -1,0 +1,42 @@
+﻿a {
+    cursor: pointer;
+}
+
+.header-home {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 25px 0 25px;
+}
+
+.logo {
+    width: 100px;
+}
+
+.arrow-back {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-location {
+    color: black;
+    font-size: 14px;
+    font-family: 'Caecilia Com 55 Roman', sans-serif;
+    text-decoration: none;
+    border: 1px #C8D3D9 solid;
+    border-radius: 4px;
+    height: fit-content;
+    padding: 1px 3px
+}
+
+.title-center {
+    color: #0B1F2F;
+    font-size: 20px;
+    font-weight: 600;
+    margin: auto;
+}
+
+.add-button {
+    display: flex;
+    float: right;
+    text-decoration: none;
+}

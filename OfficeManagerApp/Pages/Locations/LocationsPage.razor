@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.LocationUrlConst.LocationsPage)]
+@attribute [Authorize]
+
+<Header Title=@ConstEN.Locations UrlPage=@string.Format(AppConst.LocationUrlConst.LocationIdPageFormat, 0) />
+
+<Searchbar SearchbarChanged=@OnSearchbarChanged />
+
+<CustomSelector CustomSelectorPlaceholder=@ConstEN.Country CustomSelectorOptionsList=allCountries CustomSelectorChanged=@OnFilterChanged />
+
+<CustomSelector CustomSelectorPlaceholder=@ConstEN.SortBy CustomSelectorOptionsList=allSortBy CustomSelectorChanged=@OnSortChanged />
+
+<LocationList ContentList=@filteredLocationsList IsFlow=false/>
+
+<Menu />

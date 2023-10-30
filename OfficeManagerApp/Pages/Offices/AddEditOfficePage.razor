@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.OfficeUrlConst.OfficeIdPage)]
+@attribute [Authorize]
+
+@if (_stepperPage == 2)
+{
+    <Header Title=@(OfficeId == 0 ? ConstEN.AddOffice : ConstEN.EditOffice) 
+        UrlPage=@string.Format(AppConst.LocationUrlConst.LocationIdPageFormat, 0) 
+        AddLocationModalDialog=true OnLocationAdded=@OnAddLocationModalDialog />
+}
+else
+{
+    <Header Title=@(OfficeId == 0 ? ConstEN.AddOffice : ConstEN.EditOffice) />
+}
+
+@if (officeRequestModel != null)
+{
+    <div class="container">
+
+        <Stepper StepList=_allSteps StepNumber=_stepperPage/>
+
+        <div class="row">
+
+            <div class="col-md-4">
+            </div>
+
+            <div class="col-md-4">
+                @if (messages != null)
+                {
+                    @foreach (var message in messages)
+                    {
+                        <div class="error-alert">
+                            @message
+                        </div>
+                        <br />
+                    }
+                }
+
+                @switch (_stepperPage)
+                {
+                    case 1:
+                        <OfficeDetails IsValidChanged=@OnIsValidChanged 
+                            OfficeRequestModel=@officeRequestModel CompanyName=@_companyName />
+                        break;
+                    case 2:
+                        <LocationList SelectedLocationId=@officeRequestModel.LocationId
+                            SelectedLocationChanged=@OnOfficeLocationChanged 
+                            IsFlow=true ContentList=@_allLocations />
+                        break;
+                    case 3:
+                        <OfficeConfirm CompanyName=@_companyName OfficeRequestModel=@officeRequestModel />
+                        break;
+                }
+
+
+                <br />
+
+                <div class="d-flex justify-content-between">
+
+                    <button class="button-cancel" @onclick="@(_stepperPage != 1 
+                        ? () => ChangeStepperPage(false) : () => Cancel())">@(_stepperPage != 1 
+                        ? ConstEN.PreviousStep : ConstEN.Cancel)</button>
+
+                    @if (_stepperPage == 1)
+                    {
+                        <button disabled=@(OfficeId != 0 ? false : !_isValid) class="button-save" @onclick="@(() => ChangeStepperPage(true))">@ConstEN.NextStep</button>
+                    }
+                    else if (_stepperPage == 3)
+                    {
+                        <button disabled=@(officeRequestModel.LocationId == 0) class="button-save" 
+                            @onclick="@(() => CreateOrEditOffice(false))">@ConstEN.Save</button>
+                    }
+
+                </div>
+
+                <br />
+
+                @if (_stepperPage == 3)
+                {
+                    <div class="d-flex justify-content-between">
+                        <button disabled=@(officeRequestModel.LocationId == 0) class="button-save-add" 
+                            @onclick="@(() => CreateOrEditOffice(true))">@string.Format(ConstEN.SaveAdd, ConstEN.RoomsLowerCase)</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+}
+
+<Menu />

@@ -1,0 +1,20 @@
+﻿.content-room-about {
+    padding: 25px 0px;
+    border-bottom-style: solid;
+    border-bottom-color: #BBBBBB;
+    border-bottom-width: 0.5px;
+    margin: 0 25px;
+}
+
+.about-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.about-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    padding-top: 5px;
+}

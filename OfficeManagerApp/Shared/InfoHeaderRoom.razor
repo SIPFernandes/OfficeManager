@@ -1,0 +1,26 @@
+﻿@if(Room.Office != null)
+{
+    <div class="room-header">
+
+        <div>
+            <div class="room-title">
+                @Room.Name
+            </div>
+
+            <div class="room-location" style="display: flex;">
+
+                <img class="image-location" src=@AssetsConst.IconsConst.Location>
+
+                <p class="second-line-text">
+                    @Room.Office.Location.City
+                </p>
+
+            </div>
+        </div>
+
+        <div class="icon-favorite @(isFavorite == true  ? "fill" : string.Empty)" @onclick="() => manageFavorite()">
+            <img src=@AssetsConst.IconsConst.StarYellow>
+        </div>
+
+    </div>
+}

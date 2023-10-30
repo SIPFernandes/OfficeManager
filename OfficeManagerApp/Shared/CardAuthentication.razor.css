@@ -1,0 +1,44 @@
+﻿.background-authentication {
+    background-image: url(assets/images/style_page/authentication-background.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.card-container {
+    background-color: white;
+    width: fit-content;
+    margin: auto;
+    position: relative;
+    padding: 25px;
+    border-radius: 15px;
+    top: 18%;
+}
+
+.card-authentication {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-authentication {
+    font-weight: 500;
+    font-size: 32px;
+    color: #0B1F2F;
+}
+
+    .title-authentication:after {
+        content: attr(data-text);
+        color: #ED5B41;
+        transform: translateX(-100%);
+        position: absolute;
+    }
+
+.subtitle-authentication {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #333333;
+}
+
+.title-padding {
+    padding-top: 114px;
+}

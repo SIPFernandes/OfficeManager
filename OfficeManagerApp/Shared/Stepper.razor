@@ -1,0 +1,40 @@
+﻿@if (StepList != null)
+{
+    <div class="container-stepper">
+        <div class="stepper">
+
+            <div class="steps-title">
+                @foreach (var step in StepList)
+                {
+                    <div class="step-title @(StepList.IndexOf(step) == StepNumber - 1 
+                        ? "step-active-text" : StepList.IndexOf(step) < StepNumber - 1 
+                        ? "previous-step-text" : string.Empty)">
+                        @step
+                    </div>
+                }
+            </div>
+
+            <div class="steps-design">
+                @foreach (var step in StepList)
+                {
+                    <div class="step-design">
+
+                        @if(StepList.IndexOf(step) != 0)
+                        {
+                            <div class="step-line @(StepList.IndexOf(step) == StepNumber - 1
+                                ? "step-active-design" : StepList.IndexOf(step) < StepNumber - 1
+                                ? "previous-step-design" : string.Empty)">
+                            </div>
+
+                        }
+                        <div class="step-point @(StepList.IndexOf(step) == StepNumber - 1
+                            ? "step-active-design" : StepList.IndexOf(step) < StepNumber - 1
+                            ? "previous-step-design" : string.Empty)">
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,46 @@
+﻿.container-reviews {
+    padding: 26px 25px 0 25px;
+}
+
+.review-title {
+    font-weight: 500;
+    font-size: 16px;
+    color: #0B1F2F;
+}
+
+.reviews {
+    padding-top: 26px;
+    display: flex;
+    flex-direction: column;
+}
+
+.review {
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    color: #0B1F2F;
+    padding-bottom: 26px;
+}
+
+.review-content {
+    display: flex;
+    margin-left: 16px;
+    flex-direction: column;
+}
+
+.first-line {
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+
+.classification {
+    display: flex;
+    flex-direction: row;
+}
+
+.second-line {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 400;
+}

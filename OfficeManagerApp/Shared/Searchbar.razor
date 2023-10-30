@@ -1,0 +1,15 @@
+﻿<div class="@(IsFlow ? "content-search-bar-flow" : "content-search-bar")">
+
+    <div class="search-filter">
+
+        <div class="search-filter-input">
+            <input class="input-filter" placeholder="Search for something" @bind-value="@officeSearchInput" @oninput=KeyPressed>
+        </div>
+
+        <div>
+            <img src=@AssetsConst.IconsConst.Search>
+        </div>
+
+    </div>
+
+</div>

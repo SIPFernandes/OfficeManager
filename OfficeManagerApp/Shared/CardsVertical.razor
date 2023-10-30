@@ -1,0 +1,109 @@
+﻿@using OfficeManagerApp.Shared.ModalDialog
+
+<div class="content-cards-vertical">
+    <div class="cards-vertical">
+
+        @if (EntityDataList == null || !EntityDataList.Any())
+        {
+            <p class="text-info-center">@ConstEN.NoResults</p>
+        }
+        else
+        {
+            @foreach (var entity in EntityDataList)
+            {
+                <div class="card-vertical" style="background-image:url('@(string.IsNullOrEmpty(entity.Image)
+                    ? AssetsConst.ImageConst.StylePageImageConst.DefaultImage
+                    : entity.Image)')">
+
+                    <div tabindex="0" @onmouseleave="() => OpenCloseDropdown(entity.Id, true)">
+                        <img class="dots" src=@AssetsConst.IconsConst.Dots @onclick="() => OpenCloseDropdown(entity.Id, false)">
+
+                        <div id=@entity.Id.ToString() class="submenu disabled">
+
+                            <a @onclick="() => GoToEntity(entity)">
+                                <div class="icon-eye">
+                                    <img src=@AssetsConst.IconsConst.Eye>
+                                    <div class="icon-eye-text">
+                                        @ConstEN.View
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a @onclick="()=>OpenDeleteDialog(entity)">
+                                <div class="icon-trash">
+                                    <img src=@AssetsConst.IconsConst.Trash>
+                                    <div class="icon-trash-text">
+                                        @ConstEN.Delete
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    @if (UrlGoTo != null)
+                    {
+                        <a href=@string.Format(UrlGoTo, entity.Id)>
+
+                            <div class="text-info-vertical">
+
+                                <div class="left-text-vertical">
+                                    @entity.LeftText
+                                </div>
+
+                                @if (entity.RightText != string.Empty)
+                                {
+                                    <div class="right-text-vertical">
+                                        @if (entity.RightText != null)
+                                        {
+                                            @entity.RightText @(entity.RightText.Equals("1") ? ConstEN.RoomLowerCase : ConstEN.RoomsLowerCase)
+                                        }
+                                        else
+                                        {
+                                            @ConstEN.NoRooms
+                                        }
+                                    </div>
+                                }
+
+                            </div>
+
+                        </a>
+
+                        @if (Entity == ConstEN.OfficeLowerCase)
+                        {
+                            <a href=@string.Format(string.Format(AppConst.OtherPagesUrlConst.DiscoverRoomsPageFormat, entity.Id)) class="btn button-book">
+                                @ConstEN.BookOffice
+                            </a>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-info-vertical">
+
+                            <div class="left-text-vertical">
+                                @entity.LeftText
+                            </div>
+
+                            @if (entity.RightText != string.Empty)
+                            {
+                                <div class="right-text-vertical">
+                                    @if (entity.RightText != null)
+                                    {
+                                        @entity.RightText @(entity.RightText.Equals("1") ? ConstEN.RoomLowerCase : ConstEN.RoomsLowerCase)
+                                    }
+                                    else
+                                    {
+                                        @ConstEN.NoRooms
+                                    }
+                                </div>
+                            }
+
+                        </div>
+                    }
+
+                </div>
+            }
+        }
+
+    </div>
+</div>

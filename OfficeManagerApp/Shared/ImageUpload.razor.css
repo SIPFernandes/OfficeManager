@@ -1,0 +1,58 @@
+﻿p {
+    color: red;
+}
+
+.container-images {
+    display: flex;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    overflow: hidden;
+}
+
+.image-upload {
+    position: relative;
+    display: inline-flex;
+    width: 70%;
+    scroll-snap-align: center;
+    padding-top: 10px;
+}
+
+.images {
+    min-width: 30%;
+}
+
+    .images:nth-child(n+1) {
+        margin-left: 10px;
+    }
+
+.display-image {
+    width: 100%;
+}
+
+.button-X {
+    background-color: #F6F9F5;
+    border-radius: 50%;
+    border-style: none;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label-upload {
+    margin-top: 5px;
+}
+
+.button-upload {
+    background-color: lightgrey;
+    color: black;
+    border-radius: 5px;
+    padding: 4px;
+    width: 80px;
+}

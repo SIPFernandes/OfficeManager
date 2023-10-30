@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.BookingUrlConst.BookingIdPage)]
+@attribute [Authorize]
+
+@if(_isOnInitializedFinished)
+{
+        <Header Title=@ConstEN.SelectSeat />
+
+    <CalendarHorizontal DateSelectedChanged=@OnDateSelectedChanged IsDateDisabled=_isDateDisabled/>
+
+    <div class="room-planning-container">
+
+        <RoomPlanning Matrix=_matrix IsBooking=true SeatSelectedIdChanged=@OnSeatSelectedChanged />
+
+        <br />
+
+        <div class="d-flex justify-content-between">
+            <button class="button-cancel" @onclick="@(() => Cancel())">@ConstEN.Cancel</button>
+
+            <button class="button-save" @onclick=CreateOrEditBooking>@(BookingId == 0 ? ConstEN.Save : ConstEN.SaveChanges)</button>
+        </div>
+    </div>
+
+    <Menu />
+}

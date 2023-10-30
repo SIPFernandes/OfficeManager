@@ -1,0 +1,10 @@
+﻿@if(RoomFacilities != null)
+{
+    <div class="content-room-services">
+        @foreach (var facility in RoomFacilities)
+        {
+            <div class="room-services" style="background-image: url(@facility.Image.File)">
+            </div>
+        }
+    </div>
+}

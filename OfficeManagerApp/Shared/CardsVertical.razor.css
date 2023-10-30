@@ -1,0 +1,137 @@
+﻿.content-cards-vertical {
+    padding: 43px 25px 0 25px;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card-vertical {
+    background-size: cover;
+    border-radius: 8px;
+    height: 144px;
+    height: calc(851px / 5.91);
+    margin-bottom: 50px;
+    background-position: center;
+}
+
+    .card-vertical:nth-last-child(1) {
+        margin-bottom: 90px;
+    }
+
+@media (min-width:700px) {
+    .card-vertical {
+        background-size: cover;
+        border-radius: 8px;
+        height: 144px;
+        height: calc(100vw / 5.91);
+        margin-bottom: 50px;
+        background-position: center;
+    }
+}
+
+.text-info-vertical {
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 16px 0 16px;
+}
+
+@media (min-width:700px) {
+    .text-info-vertical {
+        display: flex;
+        justify-content: space-between;
+        padding: calc(70vw / 5.91) 16px 0 16px;
+    }
+}
+
+@media (min-width:1000px) {
+    .text-info-vertical {
+        display: flex;
+        justify-content: space-between;
+        padding: calc(80vw / 5.91) 16px 0 16px;
+    }
+}
+
+.left-text-vertical {
+    color: white;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.right-text-vertical {
+    color: white;
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+.text-info-center {
+    text-align: center;
+    padding: 10px;
+}
+
+.dots {
+    float: right;
+    width: 24px;
+    height: 24px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.submenu {
+    background-color: #f7f3f2;
+    width: 90px;
+    margin-top: 25px;
+    position: absolute;
+    right: 25px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .submenu a {
+        padding: 5px 5px 5px 5px;
+        cursor: pointer;
+    }
+
+.icon-eye {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-trash {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.icon-eye-text {
+    color: black;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.icon-trash-text {
+    color: #F91D1D;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.disabled {
+    display: none;
+}
+
+.button-book {
+    border-radius: 0 50px 50px 50px;
+    padding: 12px 20px 12px 24px;
+    color: white;
+    background-color: #0B1F2F;
+    width: fit-content;
+    position: absolute;
+    right: 25px;
+    font-size: 10px;
+}

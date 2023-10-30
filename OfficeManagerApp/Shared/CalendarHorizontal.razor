@@ -1,0 +1,42 @@
+﻿<div class="container-calendar">
+    <div class="calendar">
+
+        @if(!IsDateDisabled)
+        {
+            <div class="calendar-chevron">
+                <div @onclick="() => GetDates(false)">
+                    <img class="chevron-left" src="assets/images/icons/chevron-arrow-left.svg" />
+                </div>
+
+                <div @onclick="() => GetDates(true)">
+                    <img class="chevron-right" src="assets/images/icons/chevron-arrow-left.svg" />
+                </div>
+            </div>
+        }
+        
+        <div class="calendar-month">
+            @_monthDay
+        </div>
+
+        <div class="calendar-days" tabindex="0" @onkeyup=HandleKeyDown>
+
+            @foreach (var date in _dates)
+            {
+                <div class="calendar-day @(date == _dateSelected  ? "calendar-day-selected" : string.Empty) 
+                    @(IsDateDisabled == true  ? "calendar-disabled" : string.Empty)" @onclick="() => selectDay(date)">
+
+                    <div class="calendar-day-week">
+                        @date.DayOfWeek.ToString().Substring(0, 3)
+                    </div>
+
+                    <div class="calendar-day-number">
+                        @date.Day
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>

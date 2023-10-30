@@ -1,0 +1,70 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.CompanyUrlConst.CompanyIdPage)]
+@attribute [Authorize]
+
+<Header Title=@(CompanyId == 0 ? ConstEN.AddCompany : ConstEN.EditCompany) />
+
+@if (companyRequestModel != null)
+{
+    <EditForm Model="@companyRequestModel" OnValidSubmit="@(async () => await CreateOrEditCompany())">
+        <DataAnnotationsValidator />
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                </div>
+
+                <div class="col-md-4">
+                    @if (messages != null)
+                    {
+                        @foreach (var message in messages)
+                        {
+                            <div class="error-alert">
+                                @message
+                            </div>
+                            <br />
+                        }
+                    }
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.Name</label>
+                        <InputText class="form-control" @bind-Value="@companyRequestModel.Name" />
+                        <ValidationMessage For=@(() => companyRequestModel.Name) />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.Description</label>
+                        <InputText class="form-control" @bind-Value="@companyRequestModel.Description" />
+                        <ValidationMessage For=@(() => companyRequestModel.Description) />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.Image</label>
+                        <ImageUpload ImageSources=@imageSources MaxAllowedFiles="1" IsMultiple=false ImageSourcesChanged=@OnUploadImageChanged />
+                    </div>
+
+                    <br />
+
+                    <div class="d-flex justify-content-between">
+                        <button class="button-cancel" @onclick="@(() => Cancel())">@ConstEN.Cancel</button>
+
+                        <button class="button-save" type="submit">@(CompanyId == 0 ? ConstEN.Save : ConstEN.SaveChanges)</button>
+                    </div>
+
+                    @if (CompanyId != 0)
+                    {
+                        <br />
+
+                        <div class="d-flex justify-content-between">
+                            <button class="button-delete" @onclick="@(async () => await DeleteCompany())">@ConstEN.Delete</button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </EditForm>
+}
+
+<Menu />

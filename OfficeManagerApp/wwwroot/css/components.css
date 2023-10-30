@@ -1,0 +1,17 @@
+﻿.btn {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+    .btn:focus {
+        outline: none;
+        border: none;
+        box-shadow: none;
+    }
+
+    .btn:hover {
+        outline: none;
+        border: none;
+        box-shadow: none;
+    }

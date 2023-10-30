@@ -1,0 +1,13 @@
+﻿.close {
+    background: transparent;
+    border-style: none;
+    font-size: 26px;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}

@@ -1,0 +1,52 @@
+﻿.back-icon {
+    position: absolute;
+    z-index: 1;
+    left: 25px;
+    top: 25px;
+    cursor: pointer;
+}
+
+.room-image {
+    height: 365px;
+    display: inline-flex;
+    scroll-snap-align: start;
+    display: block;
+    margin: auto;
+    width: 100vw;
+}
+
+@media (min-width: 500px) {
+    .room-image {
+        height: 365px;
+        display: inline-flex;
+        scroll-snap-align: start;
+        display: block;
+        margin: auto;
+        width: 500px;
+    }
+}
+
+.slider {
+    overflow: hidden;
+    overflow-x: scroll;
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    display: -webkit-inline-box;
+
+    width: 100%;
+}
+
+.slider::-webkit-scrollbar {
+    width: 0px;
+}
+
+.slider ::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.container-slider {
+    position: relative;
+    display: flex;
+}

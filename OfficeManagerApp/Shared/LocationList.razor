@@ -1,0 +1,53 @@
+﻿@using OfficeManagerApp.Shared.ModalDialog
+
+<div class="@(IsFlow ? "content-list-flow" : "content-list")">
+
+    @if(IsFlow)
+    {
+        <Searchbar IsFlow="true" SearchbarChanged=@OnSearchbarChanged />
+    }
+
+    <div class="list @(IsFlow ? "flow" : "")">
+
+        @if (filteredLocationsList == null || !filteredLocationsList.Any())
+        {
+            <p class="text-info-center">@ConstEN.NoResults</p>
+        }
+        else
+        {
+            @foreach (var content in filteredLocationsList)
+            {
+                <div class=@(content.Id == SelectedLocationId ? "row row-selected" : "row")>
+
+                    <div class="row-content">
+
+                        <div class="title">
+                            @content.City, @content.Country
+                        </div>
+
+                        <div class="icons">
+                            @if (IsFlow)
+                            {
+                                <button @onclick="@(() => SelectLocation(content))">
+                                    <img src=@AssetsConst.IconsConst.ChevronRight>
+                                </button>
+                            }
+                            else
+                            {
+                                <a class="icon" href=@(string.Format(AppConst.LocationUrlConst.LocationIdPageFormat, content.Id))>
+                                    <img src=@AssetsConst.IconsConst.Pen>
+                                </a>
+                                <button class="icon" @onclick="()=>OpenDeleteDialog(content)">
+                                    <img src=@AssetsConst.IconsConst.Trash>
+                                </button>
+                            }
+                        </div>
+
+                    </div>                
+
+                </div>
+            }
+        }
+
+    </div>
+</div>

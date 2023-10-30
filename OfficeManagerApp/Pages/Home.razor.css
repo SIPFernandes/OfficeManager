@@ -1,0 +1,29 @@
+﻿.home-title {
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    padding: 50px 25px 0 25px;
+    line-height: 1.2;
+}
+
+.button-container {
+    padding: 16px 25px 16px 25px;
+}
+
+.button-book {
+    border-radius: 100px;
+    padding: 12px 20px 12px 24px;
+    color: white;
+    background-color: #0B1F2F;
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: center;
+}
+
+.button-icon {
+    margin-left: 10px;
+}
+
+a {
+    text-decoration: none;
+}

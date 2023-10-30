@@ -1,0 +1,49 @@
+﻿@using OfficeManagerApp.Data.Models
+
+<div class="content-cards">
+
+    <p class="card-title">@ConstEN.NearbyOffices</p>
+
+    <div class="cards">
+
+        @if (OfficesList == null || !OfficesList.Any())
+        {
+            <p class="text-info-center">@ConstEN.NoResults</p>
+        }
+        else
+        {
+            @foreach (var office in OfficesList)
+            {
+                <div class="card" style="background-image:url('@(office.Image == null
+                    ? AssetsConst.ImageConst.StylePageImageConst.DefaultImage
+                    : office.Image.File)')">
+
+                    <a href=@string.Format(AppConst.RoomUrlConst.RoomsPageFormat, office.Id)>
+                        <div class="text-info-vertical">
+
+                            <div class="left-text-vertical">
+                                @office.Name
+                            </div>
+
+                            <div class="right-text-vertical">
+                                @if (office.Rooms != null)
+                                {
+                                    @office.Rooms.Count() @(office.Rooms.Count() == 1 ? ConstEN.RoomLowerCase : ConstEN.RoomsLowerCase)
+                                }
+                                else
+                                {
+                                    @ConstEN.NoRooms
+                                }
+                            </div>
+
+                        </div>
+                    </a>
+
+                </div>
+
+            }
+        }
+
+    </div>
+
+</div>

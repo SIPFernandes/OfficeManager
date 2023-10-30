@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.RoomUrlConst.RoomDetailsPage)]
+@attribute [Authorize]
+
+@if(room != null)
+{
+    <ImageSlider Room=@room />
+
+    <InfoHeaderRoom Room=@room />
+
+    <ServicesRoom RoomFacilities=@_allRoomFacilities />
+
+    <TextContent Room=@room />
+
+    <Reviews />
+
+    <HideRevealButton RoomId=RoomId/>
+
+    <Menu />
+}

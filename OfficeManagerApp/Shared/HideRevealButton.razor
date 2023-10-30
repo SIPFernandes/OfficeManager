@@ -1,0 +1,33 @@
+﻿@using OfficeManagerApp.Areas.Services
+
+<div id="btn" class="container-button sticky" @ref=_buttonReference>
+    <div class="content-room">
+
+        <div class="info-room">
+
+            <div class="line">
+                <div>
+                    <img class="image-location" src=@AssetsConst.IconsConst.Desk>
+                </div>
+                <div class="line-text">
+                    @ConstEN.DesksLeft
+                </div>
+            </div>
+
+            <div class="line">
+                <div>
+                    <img class="image-location" src=@AssetsConst.IconsConst.Desk>
+                </div>
+                <div class="line-text">
+                    @ConstEN.RoomsDesksLeft
+                </div>
+            </div>
+
+        </div>
+
+        <a href=@string.Format(AppConst.BookingUrlConst.BookingIdPageFormat, RoomId, 0) class="btn button-book">
+            @ConstEN.BookRoom
+        </a>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+﻿@*<InputFile OnChange="@OnUploadChanged" multiple="@IsMultiple" />
+<div>
+    <p>@ErrorMessage</p>
+</div>*@
+
+<div>
+    <label class="label-upload">
+        <span class="button-upload">Choose file</span>
+        <InputFile style="display:none" OnChange="@OnUploadChanged" multiple="@IsMultiple"></InputFile>
+
+        <div>
+            <p>@ErrorMessage</p>
+        </div>
+    </label>
+</div>
+
+<div class="container-images">
+    @foreach (var image in ImageSources)
+    {
+        <div class="image-upload @(ImageSources.Count > 1 ? "images" : "")">
+            <button type="button" class="button-X" @onclick="(() => DeleteImage(image))">
+                x
+            </button>
+            <img class="display-image" src=@image />
+        </div>
+    }
+</div>

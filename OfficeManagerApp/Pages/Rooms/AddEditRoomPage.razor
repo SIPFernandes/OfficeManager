@@ -1,0 +1,117 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.RoomUrlConst.RoomIdPage)]
+@attribute [Authorize]
+
+<Header Title=@(RoomId == 0 ? ConstEN.AddRoom : ConstEN.EditRoom) />
+
+@if (roomRequestModel != null)
+{
+    <EditForm Model="@roomRequestModel" OnValidSubmit="@(async () => await CreateOrEditRoom())">
+        <DataAnnotationsValidator />
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                </div>
+
+                <div class="col-md-4">
+                    @if (messages != null)
+                    {
+                        @foreach (var message in messages)
+                        {
+                            <div class="error-alert">
+                                @message
+                            </div>
+                            <br />
+                        }
+                    }
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.Office</label>
+                        <input class="form-control" readonly="readonly" @bind="OfficeName" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.Name</label>
+                        <InputText class="form-control" @bind-Value="@roomRequestModel.Name" />
+                        <ValidationMessage For=@(() => roomRequestModel.Name) />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.Type</label>
+
+                        <InputSelect class="form-control" @bind-Value="@roomRequestModel.Type">
+                            <option value="" hidden>Select the room type</option>
+                            @foreach (var type in _allRoomTypes)
+                            {
+                                <option value="@type">@type</option>
+                            }
+                        </InputSelect>
+                        <ValidationMessage For=@(() => roomRequestModel.Type) />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.Description</label>
+                        <InputText class="form-control" @bind-Value="@roomRequestModel.Description" />
+                        <ValidationMessage For=@(() => roomRequestModel.Description) />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.Image</label>
+                        <ImageUpload MaxAllowedFiles="5" ImageSources=@imageSources IsMultiple=true ImageSourcesChanged=@OnUploadImageChanged />
+                    </div>
+
+                    @if (_allFacilities != null)
+                    {
+                        <div class="form-group">
+                            <label class="control-label label-facility">Facilities</label>
+                            @foreach (var facility in _allFacilities)
+                            {
+                                <div class="checkbox-facility">
+                                    <input checked=@roomRequestModel.RoomFacilities.Any(x => x.FacilityId == facility.Id) type="checkbox" id=@facility.Id name=@facility.Name @onclick="@(() => InsertOrRemoveRoomFacility(facility))">
+                                    <label for=@facility.Name>@facility.Name</label>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.OpeningHour</label>
+                        <input type="time" class="form-control" @bind="@roomRequestModel.OpeningHour" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.ClosingHour</label>
+                        <input type="time" class="form-control" @bind="@roomRequestModel.ClosingHour" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">@ConstEN.RoomPlanning</label>
+                        <RoomPlanning Matrix=matrix IsBooking=false />
+                    </div>
+
+                    <br />
+
+                    <div class="d-flex justify-content-between">
+                        <button class="button-cancel" type="button" @onclick="@(() => Cancel())">@ConstEN.Cancel</button>
+
+                        <button class="button-save" type="submit">@(RoomId == 0 ? ConstEN.Save : ConstEN.SaveChanges)</button>
+                    </div>
+
+                    @if (RoomId != 0)
+                    {
+                        <br />
+
+                        <div class="d-flex justify-content-between">
+                            <button class="button-delete" type="button" @onclick="@(async () => await DeleteRoom())">@ConstEN.Delete</button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </EditForm>
+}
+
+<Menu />

@@ -1,0 +1,27 @@
+﻿.other-button {
+    padding: 5px 25px 60px 25px;
+}
+
+.button-image {
+    background-image: url('assets/images/style_page/other-button.png');
+    background-size: cover;
+    border-radius: 8px;
+    height: 250px;
+    height: calc(851px / 3.404);
+    background-position: center;
+}
+
+.arrow-right-diagonal {
+    float: right;
+    padding: 5px 5px;
+}
+
+.content-other-button {
+    color: white;
+    font-weight: 600;
+    font-size: 32px;
+    bottom: 60px;
+    position: absolute;
+    padding: 0 0 0 21px;
+    margin-bottom: 0;
+}

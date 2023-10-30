@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.CompanyUrlConst.CompaniesPage)]
+@attribute [Authorize]
+
+<Header Title=@ConstEN.Companies UrlPage=@string.Format(AppConst.CompanyUrlConst.CompanyIdPageFormat, 0) />
+
+<Searchbar SearchbarChanged=@OnSearchbarChanged />
+
+<CustomSelector CustomSelectorPlaceholder=@ConstEN.SortBy CustomSelectorOptionsList=allSortBy CustomSelectorChanged=@OnSortChanged />
+
+<CardsVertical EntityDataList=entityCardModelList Entity=@ConstEN.CompanyLowerCase
+               UrlGet=@AppConst.CompanyUrlConst.CompanyIdPageFormat UrlGoTo=@AppConst.OfficeUrlConst.OfficesPageFormat
+               OnDeleteEvent="(entity) => DeleteCompany(entity)" />
+
+<Menu />

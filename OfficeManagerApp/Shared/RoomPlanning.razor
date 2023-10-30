@@ -1,0 +1,65 @@
+﻿@if (!IsBooking)
+{
+    <div class="label-images">
+
+        <div class="label-image">
+            <img class="@(_iconSelected == ConstEN.Table ? "icon-selected" : string.Empty)" src=@AssetsConst.IconsConst.Table @onclick=@(() => SelectIcon(ConstEN.Table))>
+            <div class="label-text">
+                Table
+            </div>
+        </div>
+
+        <div class="label-image">
+            <img class="@(_iconSelected == ConstEN.Chair ? "icon-selected" : string.Empty)" src=@AssetsConst.IconsConst.Chair @onclick=@(() => SelectIcon(ConstEN.Chair))>
+            <div class="label-text">
+                Chair
+            </div>
+        </div>
+
+    </div>
+}
+
+<div class="room-planning">
+    <table>
+        @for (int row = 0; row < _rows; row++)
+        {
+            int i = row;
+            <tr>
+                @for (int column = 0; column < _columns; column++)
+                {
+                    int j = column;
+                    <td @onclick="@(() => ChangeRoomPlanning(i, j))">
+                        @if (Matrix[i, j] == null)
+                        {
+
+                        }
+                        else if (Matrix[i, j].SeatName == ConstEN.Table)
+                        {
+                            <div class="fill-cell-table"></div>
+
+                        }
+                        else if (Matrix[i, j].SeatName == ConstEN.Chair)
+                        {
+                            <div class="fill-cell-chair"></div>
+                        }
+                        else if (Matrix[i, j].SeatName == ConstEN.Occupated)
+                        {
+                            <div class="fill-cell-chair chair-occupated">
+                                @Matrix[i, j].UserName
+                            </div>
+
+                        }
+                        else if (Matrix[i, j].SeatName == ConstEN.Selected)
+                        {
+                            if (_selectedX == -1)
+                            {
+                                SetSelectedSeat(i, j);
+                            }
+                            <div class="fill-cell-chair chair-selected"></div>
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>

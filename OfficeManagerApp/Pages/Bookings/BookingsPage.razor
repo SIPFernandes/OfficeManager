@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.BookingUrlConst.BookingsPage)]
+@attribute [Authorize]
+
+<Header Title=@ConstEN.Bookings UrlPage=@AppConst.OtherPagesUrlConst.DiscoverOfficesPage /> @*TODO: another flow to add bookings*@
+
+<Searchbar SearchbarChanged=@OnSearchbarChanged />
+
+<CustomSelector CustomSelectorPlaceholder=@ConstEN.Date IsDatePicker=true CustomSelectorChanged=@OnDateChanged />
+
+<CustomSelector CustomSelectorPlaceholder=@ConstEN.SortBy CustomSelectorOptionsList=allSortBy CustomSelectorChanged=@OnSortChanged />
+
+<CardsBooking BookingsList="filteredBookingsList" />
+
+<Menu />

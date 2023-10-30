@@ -1,0 +1,34 @@
+﻿@attribute [Route(AppConst.OtherPagesUrlConst.HomePage)]
+@attribute [Authorize]
+@using Microsoft.AspNetCore.Authorization
+
+<Header />
+
+<div class="home-title">
+    <p>
+        @ConstEN.HomeTitle_1
+        <br />
+        @ConstEN.HomeTitle_2
+    </p>
+</div>
+
+<div class="button-container">
+    <a href=@AppConst.OtherPagesUrlConst.DiscoverOfficesPage>
+        <div class="btn button-book">
+            <div>
+                @ConstEN.BookNow
+            </div>
+            <div class="button-icon">
+                <img src=@AssetsConst.IconsConst.ArrowRight />
+            </div>
+        </div>
+    </a>
+</div>
+
+<CardsRoom IsVertical=false RoomsList=allRoomsList />
+
+<CardsOffice OfficesList=allOfficesList />
+
+<OtherButton Url=@string.Format(AppConst.OfficeUrlConst.OfficesPageFormat, 1) />
+
+<Menu />

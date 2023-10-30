@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using OfficeManagerApp.Shared.ModalDialog
+@inherits LayoutComponentBase
+
+@if (User != null)
+{
+    <Loading @ref="LoadingComponent" />
+
+    <CascadingValue Value="User" IsFixed="true">
+        <CascadingValue Value="LoadingComponent" IsFixed="true">
+            <div class="page">
+                <main>
+                    @Body
+                </main>
+            </div>
+        </CascadingValue>
+    </CascadingValue>
+}
+
+<ModalDialog />
+
+<Loading />

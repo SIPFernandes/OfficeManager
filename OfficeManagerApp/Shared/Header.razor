@@ -1,0 +1,64 @@
+﻿@using OfficeManagerApp.Shared.ModalDialog
+@using OfficeManagerApp.Pages.Locations
+
+<div class="header-home">
+
+    <div>
+        @if (Title != string.Empty)
+        {
+            <a href="">
+                <img @onclick="(()=> GoBack())" class="arrow-back" src=@AssetsConst.IconsConst.ArrowBack>
+            </a>
+        }
+        else
+        {
+            <img class="logo" src=@AssetsConst.IconsConst.Logo>
+        }
+    </div>
+
+    @if (Title == string.Empty)
+    {
+        <div class="icon-location">
+            <img src=@AssetsConst.IconsConst.Location>
+            @ConstEN.FaroPT
+        </div>
+    }
+    else
+    {
+        <div class="title-center">
+            @Title
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(UrlPage))
+    {
+        <div class="add-button">
+            @if (AddLocationModalDialog)
+            {
+                <a @onclick="()=>OpenAddLocationDialog()">
+                    <img src=@AssetsConst.IconsConst.Plus>
+                </a>
+            }
+            else
+            {
+                <a href=@UrlPage>
+                    <img src=@AssetsConst.IconsConst.Plus>
+                </a>
+            }
+        </div>
+    }
+
+</div>
+
+@if (AddLocationModalShow)
+{
+    <ModalDialog Title=@ConstEN.AddLocation
+             DialogType=ModalDialogEnum.NoFooter
+             OnClose="@OnDialogClose">
+
+             <Content>
+                 <AddEditLocationPage IsModalDialog=true AddLocationChanged=@AddLocation/>
+             </Content>
+    </ModalDialog>
+
+}

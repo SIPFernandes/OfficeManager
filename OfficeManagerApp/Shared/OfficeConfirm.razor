@@ -1,0 +1,21 @@
+﻿<div class="form-group">
+    <label class="control-label">@ConstEN.Company</label>
+    <input class="form-control" readonly="readonly" @bind="CompanyName" />
+</div>
+
+<div class="form-group">
+    <label class="control-label">@ConstEN.Name</label>
+    <input class="form-control" readonly="readonly" @bind="OfficeRequestModel.Name" />
+</div>
+
+<div class="form-group">
+    <label class="control-label">@ConstEN.Image</label>
+    <img class="location-image" src=@(string.IsNullOrEmpty(OfficeRequestModel.Image) ? AssetsConst.ImageConst.StylePageImageConst.DefaultImage : OfficeRequestModel.Image) />
+</div>
+
+<div class="form-group">
+    <label class="control-label">@ConstEN.Location</label>
+    <input class="form-control" readonly="readonly" @bind="_locationName" />
+</div>
+
+<Menu />

@@ -1,0 +1,21 @@
+﻿<div class="container-slider">
+
+    <img @onclick="(()=> GoBack())" class="back-icon" src=@AssetsConst.IconsConst.ArrowBackground />
+
+    <div class="slider">
+
+        @if(_roomImages.Count == 0)
+        {
+            <img class="room-image" src=@AssetsConst.ImageConst.StylePageImageConst.DefaultImage />
+        }
+        else
+        {
+            @for (int i = 0; i < _roomImages.Count; i++)
+            {
+                <img id=@i class="room-image" src=@_roomImages[i] />
+            }
+        }
+
+    </div>
+
+</div>

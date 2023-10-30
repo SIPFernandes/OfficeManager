@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.OtherPagesUrlConst.DiscoverOfficesPage)]
+@attribute [Authorize]
+
+<Header Title=@string.Format(ConstEN.HelloUser, User.Name) />
+
+<Searchbar SearchbarChanged=@OnSearchbarChanged />
+
+<CalendarHorizontal DateSelectedChanged=@OnDateSelectedChanged />
+
+<CardsDiscover DiscoverDataList="discoverCardModelList" UrlGoTo=@AppConst.OtherPagesUrlConst.DiscoverRoomsPageFormat />
+
+<Menu />

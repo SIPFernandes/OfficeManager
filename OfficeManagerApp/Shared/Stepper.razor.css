@@ -1,0 +1,64 @@
+﻿.container-stepper {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.stepper {
+    flex-direction: column;
+    display: flex;
+    width: 40%;
+}
+
+.steps-title {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    color: #C8D3D9;
+}
+
+.step-title:nth-last-child(1) {
+    margin-right: 20px;
+}
+
+.steps-design {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.step-design {
+    display: flex;
+    align-items: center;
+}
+
+.step-point {
+    background-color: #C8D3D9;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+
+.step-line {
+    background-color: #C8D3D9;
+    width: 170px;
+    height: 1px;
+}
+
+.step-active-text {
+    font-weight: 600;
+    color: black;
+}
+
+.previous-step-text {
+    font-weight: 400;
+    color: black;
+}
+
+.step-active-design {
+    background-color: black;
+}
+
+.previous-step-design {
+    background-color: black;
+}

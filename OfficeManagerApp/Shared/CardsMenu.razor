@@ -1,0 +1,23 @@
+﻿<div class="container-menu-list">
+
+    <div class="cards-menu">
+
+        @foreach(var menu in MenuList)
+        {
+            <a href=@menu.Url>
+
+                <div class="card-menu">
+                    <div class="menu-icon">
+                        <img src=@menu.Image>
+                    </div>
+                    <div class="menu-icon-name">
+                        @menu.Title
+                    </div>
+                </div>
+
+            </a>
+        }
+
+    </div>
+
+</div>

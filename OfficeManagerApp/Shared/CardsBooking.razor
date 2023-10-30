@@ -1,0 +1,94 @@
+﻿@using OfficeManagerApp.Data.Models
+@using OfficeManagerApp.Shared.ModalDialog
+
+<div class="content-cards">
+
+    <div class="cards">
+
+        @if (BookingsList == null || !BookingsList.Any())
+        {
+            <p class="text-info-center">@ConstEN.NoResults</p>
+        }
+        else if (_informationLoaded)
+        {
+            @foreach (var booking in BookingsList)
+            {
+                <div class="card">
+
+                    <div class="container-card">
+
+                        <img class="room-image" src=@(_roomDictionary[booking.RoomId].Images.Count == 0
+                             ? AssetsConst.ImageConst.StylePageImageConst.DefaultImage
+                             : _roomDictionary[booking.RoomId].Images[0].File)>
+
+                        <div class="booking-details">
+                            <div class="booking-info1">
+
+                                <div class="room-name">
+                                    @_roomDictionary[booking.RoomId].Name
+                                </div>
+
+                            </div>
+
+                            <div class="booking-info2 booking-date" style="display: flex;">
+
+                                <div class="second-line-text">
+                                    @booking.Date.ToString(ConstEN.MonthNameDayYear)
+                                </div>
+
+                                <div class="second-line-text">
+                                    @booking.Hour.ToString(ConstEN.HourMinute24)
+                                </div>
+
+                            </div>
+
+                            <div class="booking-info3">
+
+                                <div class="booking-location" style="display: flex;">
+
+                                    <img class="icon-location" src=@AssetsConst.IconsConst.Location>
+
+                                    <div class="second-line-text">
+                                        @_roomDictionary[booking.RoomId].Office.Location.City,
+                                        @_roomDictionary[booking.RoomId].Office.Location.Country
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div tabindex="0" @onmouseleave="() => OpenCloseDropdown(booking.Id, true)">
+                            <img class="dots-absolute" src=@AssetsConst.IconsConst.Dots @onclick="() => OpenCloseDropdown(booking.Id, false)">
+
+                            <div id=@booking.Id.ToString() class="submenu-absolute disabled">
+
+                                <a href=@string.Format(AppConst.BookingUrlConst.BookingIdPageFormat, booking.RoomId, booking.Id)>
+                                    <div class="icon-eye">
+                                        <img src=@AssetsConst.IconsConst.Pen>
+                                        <div class="icon-eye-text">
+                                            @ConstEN.Edit
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a @onclick="@(() => OpenDeleteDialog(booking))">
+                                    <div class="icon-trash">
+                                        <img src=@AssetsConst.IconsConst.Trash>
+                                        <div class="icon-trash-text">
+                                            @ConstEN.Delete
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        }
+
+    </div>
+
+</div>

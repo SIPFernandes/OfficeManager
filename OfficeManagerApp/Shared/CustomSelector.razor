@@ -1,0 +1,61 @@
+﻿<div class="filters">
+
+    <div class="filter">
+
+        @if(IsDatePicker)
+        {
+            <input type="date" value="@dateSelected?.ToString(ConstEN.DayMonthYearInverted)" @onchange="@DateSelected" class="date" />
+
+            <div class="custom-selector-date">
+                <div>
+                    @(dateSelected == null ? ConstEN.SelectDate : dateSelected.Value.ToString(ConstEN.DayMonthYear))
+                </div>
+
+                <div>
+                    <img class="icon-date" src=@AssetsConst.IconsConst.Calendar />
+                </div>
+            </div>
+        }
+        else
+        {
+            @if (isDropdownOpen)
+            {
+                <div class="filter-opened">
+
+                    <div class="filter-content" @onclick=OpenCloseDropdown>
+
+                        <p class="filter-name">
+                            @(!string.IsNullOrEmpty(filterNameChanged) && !filterNameChanged.Equals(@ConstEN.All) ? filterNameChanged : CustomSelectorPlaceholder)
+                        </p>
+                        <img class="filter-arrow" src=@AssetsConst.IconsConst.ChevronArrowDown>
+
+                    </div>
+
+                    @foreach (var filter in CustomSelectorOptionsList)
+                    {
+                        <div class="filter-option @(filter == filterNameChanged ? "filter-option-selected" : string.Empty)" @onclick="()=>OptionSelected(filter)">@filter</div>
+                    }
+
+                    @if (!CustomSelectorPlaceholder.Equals(@ConstEN.SortBy))
+                    {
+                        <div class="filter-option all" @onclick="()=>OptionSelected(ConstEN.All)">@ConstEN.SeeAll</div>
+                    }
+
+                </div>
+            }
+            else
+            {
+                <div class="filter-content" @onclick=OpenCloseDropdown>
+
+                    <p class="filter-name">
+                        @(!string.IsNullOrEmpty(filterNameChanged) && !filterNameChanged.Equals(@ConstEN.All) ? filterNameChanged : CustomSelectorPlaceholder)
+                    </p>
+                    <img class="filter-arrow" src=@AssetsConst.IconsConst.ChevronArrowDown>
+
+                </div>
+            }
+        }        
+
+    </div>
+
+</div>

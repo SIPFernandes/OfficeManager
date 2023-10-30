@@ -1,0 +1,13 @@
+﻿.container {
+    margin-bottom: 50px;
+}
+
+.checkbox-facility {
+    display: inline-block;
+    width: 50%;
+}
+
+.label-facility {
+    width: 80%;
+    margin-bottom: 8px;
+}

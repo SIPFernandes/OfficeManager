@@ -1,0 +1,48 @@
+﻿.room-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-color: #BBBBBB;
+    border-bottom-width: 0.5px;
+    margin: 10px 25px;
+    padding-bottom: 29px;
+}
+
+.room-title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.room-location {
+    color: #707070;
+    font-size: 14px;
+    font-family: 'Caecilia Com 55 Roman', sans-serif;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 1px 3px;
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+}
+
+.image-location {
+    height: 16px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.second-line-text {
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-block-end: 10px;
+    align-self: center;
+    margin-bottom: 0px;
+}
+
+.icon-favorite {
+    align-self: center;
+}
+
+    .icon-favorite.fill {
+        filter: brightness(0) saturate(100%) invert(9%) sepia(91%) saturate(6929%) hue-rotate(359deg) brightness(96%) contrast(119%);
+    }

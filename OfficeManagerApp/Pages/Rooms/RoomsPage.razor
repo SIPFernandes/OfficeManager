@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@attribute [Route(AppConst.RoomUrlConst.RoomsPage)]
+@attribute [Authorize]
+
+<Header Title=@(office != null ? office.Name : ConstEN.Rooms) UrlPage=@string.Format(AppConst.RoomUrlConst.RoomIdPageFormat, OfficeId, office.Name, 0) />
+
+<Searchbar SearchbarChanged=@OnSearchbarChanged />
+
+<CustomSelector CustomSelectorPlaceholder=@ConstEN.RoomType CustomSelectorOptionsList=allRoomTypes CustomSelectorChanged=@OnFilterChanged/>
+
+<CustomSelector CustomSelectorPlaceholder=@ConstEN.SortBy CustomSelectorOptionsList=allSortBy CustomSelectorChanged=@OnSortChanged />
+
+<CardsRoom Office=@office RoomsList="filteredRoomsList" IsVertical=true/>
+
+<Menu />

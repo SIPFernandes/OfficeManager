@@ -1,0 +1,107 @@
+﻿a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.content-cards {
+    padding: 10px 25px 0 25px;
+}
+
+.cards {
+    margin-top: 10px;
+}
+
+.card-data {
+    margin-right: 0;
+    margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+    height: 280px;
+    flex-direction: column;
+    position: relative;
+}
+
+    .card-data:nth-last-child(1) {
+        margin-bottom: 70px;
+    }
+
+    .card-data:nth-child(n+2) {
+        margin-top: 50px;
+    }
+
+.data-image {
+    border-radius: 8px 8px 8px 8px;
+    width: 100%;
+    height: 70%
+}
+
+.data-name {
+    color: #0B1F2F;
+    font-weight: 600;
+    display: flex;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.data-location {
+    color: #707070;
+    font-size: 14px;
+    font-family: 'Caecilia Com 55 Roman', sans-serif;
+    text-decoration: none;
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-left: 10px;
+    display: inline-flex;
+}
+
+.image-location-vertical {
+    height: 30px;
+    width: 11px;
+}
+
+.second-line-text {
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+.text-info-center {
+    text-align: center;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.info-room {
+    display: flex;
+    padding-left: 5px;
+}
+
+.line {
+    display: flex;
+    font-weight: 400;
+    font-size: 12px;
+    color: #707070;
+}
+
+.line-text {
+    margin-left: 5px;
+    align-self: center;
+}
+
+.button-book {
+    border-radius: 100px;
+    padding: 12px 20px 12px 24px;
+    color: white;
+    background-color: #0B1F2F;
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 10px;
+}

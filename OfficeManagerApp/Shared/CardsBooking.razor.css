@@ -1,0 +1,198 @@
+﻿a {
+    text-decoration: none;
+}
+
+.content-cards {
+    padding: 24px 0 0 25px;
+    justify-content: space-between;
+}
+
+.cards {
+    overflow-x: scroll;
+    white-space: nowrap;
+    overflow-x: hidden;
+    padding: 0 25px 0 0;
+    /*Overlap*/
+    margin-top: 40px;
+}
+
+.card {
+    border-radius: 8px;
+    border-style: none;
+    margin-right: 0;
+    margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+    height: 130px;
+    background-color: #F6F9F5;
+}
+
+@media (min-width: 800px) {
+    .card {
+        border-radius: 8px;
+        border-style: none;
+        margin-right: 0;
+        margin-bottom: 20px;
+        display: flex;
+        width: 100%;
+        height: 15vw;
+        background-color: #F6F9F5;
+    }
+}
+
+    .card:nth-last-child(1) {
+        margin-bottom: 50px;
+    }
+
+.container-card {
+    display: flex;
+    height: -webkit-fill-available;
+}
+
+.room-image {
+    border-radius: 10px;
+    width: 30%;
+    height: 80%;
+    margin-left: 25px;
+    align-self: center;
+    display: flex;
+}
+
+@media (min-width: 980px) {
+    .room-image {
+        border-radius: 10px;
+        width: 25%;
+        height: 80%;
+        margin-left: 25px;
+        align-self: center;
+        display: flex;
+    }
+}
+
+@media (min-width: 980px) {
+    .booking-details {
+        padding-top: 15px;
+    }
+}
+
+.booking-info1 {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.room-name {
+    color: #0B1F2F;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.room-status {
+    height: 100%;
+    width: 4%;
+    border-radius: 10px 0 0 10px;
+    display: inline-block;
+}
+
+.booking-info3 {
+    padding: 2px 10px 3px 20px;
+}
+
+.booking-info2 {
+    color: #0B1F2F;
+    font-size: 12px;
+    font-family: 'Caecilia Com 55 Roman', sans-serif;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 8px 10px;
+    flex-direction: column;
+}
+
+.booking-location {
+    color: #0B1F2F;
+    font-size: 12px;
+    font-family: 'Caecilia Com 55 Roman', sans-serif;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 1px 3px;
+}
+
+.icon-location {
+    height: 20px;
+    width: 8px;
+}
+
+.second-line-text {
+    padding-top: 2px;
+    margin-left: 10px;
+}
+
+.text-info-center {
+    text-align: center;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.dots-absolute {
+    float: right;
+    width: 24px;
+    height: 24px;
+    padding-top: 5px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.submenu-absolute {
+    background-color: #f7f3f2;
+    width: 90px;
+    margin-top: 25px;
+    position: absolute;
+    right: 0;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .submenu-absolute a {
+        padding: 5px 5px 5px 5px;
+        cursor: pointer;
+    }
+
+.icon-eye {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-trash {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.icon-eye-text {
+    color: black;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.icon-trash-text {
+    color: #F91D1D;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.disabled {
+    display: none;
+}

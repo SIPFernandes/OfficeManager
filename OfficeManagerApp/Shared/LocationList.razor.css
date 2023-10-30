@@ -1,0 +1,65 @@
+﻿.content-list {
+    padding: 50px 25px 0 25px;
+}
+
+.content-list-flow {
+    padding: 5px 0 0 0;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+.flow {
+    margin-bottom: 0px;
+}
+
+.text-info-center {
+    text-align: center;
+    padding: 10px;
+}
+
+.row {
+    border-bottom: 1px solid #BBBBBB;
+    padding: 15px 0;
+    margin: 0 5px;
+}
+
+.row-selected {
+    background-color: #EDF1F3;
+}
+
+.row-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 18px;
+    line-height: 32px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.icon:last-child {
+    margin-left: 5px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-flow {
+    margin-bottom: 50px;
+}

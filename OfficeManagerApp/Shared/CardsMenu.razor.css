@@ -1,0 +1,33 @@
+﻿.container-menu-list {
+    padding: 43px 25px 0 25px;
+    margin-top: 20px;
+}
+
+.cards-menu {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+}
+
+.card-menu {
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #F6F9F5;
+    width: 150px;
+    height: 100px;
+}
+
+.menu-icon {
+    padding-top: 25px;
+}
+
+.menu-icon-name {
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
