@@ -51,13 +51,25 @@ namespace RabbitMQClient.Shared.Areas.Services
         private IConnection GetConnection()
         {
             var section = _configuration.GetSection(RabbitMQConst.Section);
+            var useCredentials = section.GetValue<bool>(RabbitMQConst.Configuration.HostName);
 
-            ConnectionFactory connectionFactory = new()
+            ConnectionFactory connectionFactory;
+
+            if (useCredentials)
             {
-                HostName = section.GetValue<string>(RabbitMQConst.Configuration.HostName),
-                //UserName = section.GetValue<string>(RabbitMQConst.Configuration.UserName),
-                //Password = section.GetValue<string>(RabbitMQConst.Configuration.Password),
-            };
+                connectionFactory = new()
+                {                    
+                    UserName = section.GetValue<string>(RabbitMQConst.Configuration.UserName),
+                    Password = section.GetValue<string>(RabbitMQConst.Configuration.Password),
+                };
+            }
+            else
+            {
+                connectionFactory = new()
+                {
+                    HostName = section.GetValue<string>(RabbitMQConst.Configuration.HostName),                    
+                };
+            }
 
             return connectionFactory.CreateConnection();
         }

@@ -4,6 +4,7 @@
     {        
         public class Configuration
         {
+            public const string UseCredentials = "UseCredentials";
             public const string HostName = "HostName";
             public const string UserName = "UserName";
             public const string Password = "Password";
