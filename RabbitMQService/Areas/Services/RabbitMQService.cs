@@ -58,7 +58,8 @@ namespace RabbitMQClient.Shared.Areas.Services
             if (useCredentials)
             {
                 connectionFactory = new()
-                {                    
+                {
+                    HostName = section.GetValue<string>(RabbitMQConst.Configuration.HostName),
                     UserName = section.GetValue<string>(RabbitMQConst.Configuration.UserName),
                     Password = section.GetValue<string>(RabbitMQConst.Configuration.Password),
                 };
