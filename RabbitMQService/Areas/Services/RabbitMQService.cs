@@ -51,7 +51,7 @@ namespace RabbitMQClient.Shared.Areas.Services
         private IConnection GetConnection()
         {
             var section = _configuration.GetSection(RabbitMQConst.Section);
-            var useCredentials = section.GetValue<bool>(RabbitMQConst.Configuration.HostName);
+            var useCredentials = section.GetValue<bool>(RabbitMQConst.Configuration.UseCredentials);
 
             ConnectionFactory connectionFactory;
 
